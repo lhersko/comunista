@@ -4,7 +4,7 @@
 #' Fix accents and weird characters in comunas and gets them in proper format.
 #' Also converts some municipality names that can be spelled differently to a standard format.
 #'
-#' @param dfName A dataframe containing a variable with comunas
+#' @param dfName A dataframe containing a variable with comunas.
 #' @param varName A variable containing comunas, in quotation marks.
 #'
 #' @return A character vector.

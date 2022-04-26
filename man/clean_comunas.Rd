@@ -8,7 +8,7 @@ Also converts some municipality names that can be spelled differently to a stand
 clean_comunas(dfName, varName)
 }
 \arguments{
-\item{dfName}{A dataframe containing a variable with comunas}
+\item{dfName}{A dataframe containing a variable with comunas.}
 
 \item{varName}{A variable containing comunas, in quotation marks.}
 }
