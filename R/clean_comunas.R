@@ -5,7 +5,7 @@
 #' Also converts some municipality names that can be spelled differently to a standard format.
 #'
 #' @param dfName A dataframe containing a variable with comunas.
-#' @param varName A variable containing comunas, in quotation marks.
+#' @param varName A variable containing municipalities, in quotation marks.
 #'
 #' @return A character vector.
 #' @export
