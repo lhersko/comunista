@@ -1,10 +1,10 @@
 Package: comunista
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Fixes Names Of Chilean Municipalities For Easier Joining
+Version: 0.0.1
 Authors@R: 
     person("Luis", "Herskovic", , "luis.herskovic@uai.cl", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-8761-1669"))
-Description: Cleans up and creates standard names for the 346 municipalities of Chile. This makes joining data sets by municipality name easier.
+Description: Cleans up and creates standard names for the 346 municipalities of Chile. This makes joining data sets by municipality name easier. Also adds INE codes to municipalities.
 URL: https://github.com/lhersko/comunista
 License: MIT + file LICENSE
 Encoding: UTF-8
