@@ -2,13 +2,13 @@
 % Please edit documentation in R/clean_comunas.R
 \name{clean_comunas}
 \alias{clean_comunas}
-\title{Fix accents and weird characters in comunas and gets them in proper format.
+\title{Fix accents and weird characters in municipalities and gets them in proper format.
 Also converts some municipality names that can be spelled differently to a standard format.}
 \usage{
 clean_comunas(dfName, varName)
 }
 \arguments{
-\item{dfName}{A dataframe containing a variable with comunas.}
+\item{dfName}{A dataframe containing a variable with municipalities}
 
 \item{varName}{A variable containing municipalities, in quotation marks.}
 }
@@ -16,6 +16,6 @@ clean_comunas(dfName, varName)
 A character vector.
 }
 \description{
-Fix accents and weird characters in comunas and gets them in proper format.
+Fix accents and weird characters in municipalities and gets them in proper format.
 Also converts some municipality names that can be spelled differently to a standard format.
 }
