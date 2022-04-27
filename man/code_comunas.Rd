@@ -17,3 +17,8 @@ A character vector.
 \description{
 This function matches municipalities by name to their corresponding INE code
 }
+\examples{
+#' df <- data.frame(comunas=c("ñuñoa", "Peñalolén", "PEñaflor", "Las condes"))
+clean_df <- clean_comunas(df, "comunas")
+code_comunas(clean_df, "comunas")
+}

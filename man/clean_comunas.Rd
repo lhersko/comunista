@@ -19,3 +19,7 @@ A character vector.
 Fix accents and weird characters in municipalities and gets them in proper format.
 Also converts some municipality names that can be spelled differently to a standard format.
 }
+\examples{
+df <- data.frame(comunas=c("ñuñoa", "Peñalolén", "PEñaflor", "Las condes"))
+clean_comunas(df, "comunas")
+}

@@ -9,10 +9,20 @@
 #'
 #' @return A character vector.
 #' @export
+#' @examples
+#' df <- data.frame(comunas=c("ñuñoa", "Peñalolén", "PEñaflor", "Las condes"))
+#' clean_comunas(df, "comunas")
 clean_comunas <- function(dfName, varName){
      dfName[[varName]] <- stringi::stri_trans_general(dfName[[varName]], "latin-ascii")
      dfName[[varName]] <- stringi::stri_trans_totitle(dfName[[varName]])
      dfName[[varName]][dfName[[varName]] == "Bio Bio"] <- "Biobio"
+     dfName[[varName]][dfName[[varName]] == "Bio-Bio"] <- "Biobio"
      dfName[[varName]][dfName[[varName]] == "Coihaique"] <- "Coyhaique"
+     dfName[[varName]][dfName[[varName]] == "Tal Tal"] <- "Taltal"
+     dfName[[varName]][dfName[[varName]] == "Til Til"] <- "Tiltil"
+     dfName[[varName]][dfName[[varName]] == "Llay Llay"] <- "Llayllay"
+     dfName[[varName]][dfName[[varName]] == "Llaillay"] <- "Llayllay"
+     dfName[[varName]][dfName[[varName]] == "Llay-Llay"] <- "Llayllay"
      dfName
 }
+
