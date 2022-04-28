@@ -6,7 +6,7 @@
 #' @return A character vector.
 #' @export
 #' @examples
-#' #' df <- data.frame(comunas=c("ñuñoa", "Peñalolén", "PEñaflor", "Las condes"))
+#' df <- data.frame(comunas=c("ñuñoa", "Peñalolén", "PEñaflor", "Las condes"))
 #' clean_df <- clean_comunas(df, "comunas")
 #' code_comunas(clean_df, "comunas")
 code_comunas <- function(dfName, varName){
