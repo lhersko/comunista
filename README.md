@@ -1,13 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# comunista
+# comunista <a href='https://dplyr.tidyverse.org'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of comunista is to clean up accents from municipality names of
-Chile and gets them in proper format to make joining datasets by
+The goal of `comunista` is to clean up accents from municipality names
+of Chile and gets them in proper format to make joining datasets by
 municipality easier.
 
 ## Installation
