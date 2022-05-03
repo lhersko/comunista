@@ -59,3 +59,23 @@ code_comunas(df_clean, "comunas")
 ```
  
 It is strongly suggested that you run clean_comunas() on your data before running code_comunas().
+
+To use the code\_regiones() function first specify your data frame name
+and then the variable that contains municipality names in quotations.
+For example:
+
+``` r
+library(comunista)
+df <- data.frame(comunas=c("ñuñoa", "Peñalolén", "PEñaflor", "Las condes"))
+df_clean <- clean_comunas(df, "comunas")
+code_regiones(df_clean, "comunas")
+#>      comunas cod_comuna
+#> 1 Las Condes      13114
+#> 2      Nunoa      13120
+#> 3   Penaflor      13605
+#> 4  Penalolen      13122
+```
+
+It is strongly suggested that you run clean\_comunas() on your data
+before running code\_regiones().
+

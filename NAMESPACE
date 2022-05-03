@@ -2,3 +2,4 @@
 
 export(clean_comunas)
 export(code_comunas)
+export(code_regiones)
