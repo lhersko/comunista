@@ -108,6 +108,18 @@
 <span class="co">#&gt; 3   Penaflor      13605</span>
 <span class="co">#&gt; 4  Penalolen      13122</span></code></pre></div>
 <p>It is strongly suggested that you run clean_comunas() on your data before running code_comunas().</p>
+<p>To use the code_regiones() function first specify your data frame name and then the variable that contains municipality names in quotations. For example:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/lhersko/comunista" class="external-link">comunista</a></span><span class="op">)</span>
+<span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>comunas<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ñuñoa"</span>, <span class="st">"Peñalolén"</span>, <span class="st">"PEñaflor"</span>, <span class="st">"Las condes"</span><span class="op">)</span><span class="op">)</span>
+<span class="va">df_clean</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/clean_comunas.html">clean_comunas</a></span><span class="op">(</span><span class="va">df</span>, <span class="st">"comunas"</span><span class="op">)</span>
+<span class="fu"><a href="reference/code_regiones.html">code_regiones</a></span><span class="op">(</span><span class="va">df_clean</span>, <span class="st">"comunas"</span><span class="op">)</span>
+<span class="co">#&gt;      comunas cod_comuna</span>
+<span class="co">#&gt; 1 Las Condes      13114</span>
+<span class="co">#&gt; 2      Nunoa      13120</span>
+<span class="co">#&gt; 3   Penaflor      13605</span>
+<span class="co">#&gt; 4  Penalolen      13122</span></code></pre></div>
+<p>It is strongly suggested that you run clean_comunas() on your data before running code_regiones().</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
