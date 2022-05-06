@@ -69,13 +69,18 @@ For example:
 ``` r
 library(comunista)
 df <- data.frame(comunas=c("ñuñoa", "Peñalolén", "PEñaflor", "Las condes"))
-df_clean <- clean_comunas(df, "comunas")
-code_regiones(df_clean, "comunas")
-#>      comunas cod_comuna
-#> 1 Las Condes      13114
-#> 2      Nunoa      13120
-#> 3   Penaflor      13605
-#> 4  Penalolen      13122
+clean_df <- clean_comunas(df, "comunas")
+code_regiones(clean_df, "comunas")
+#>      comunas           nom_region_2000           nom_region_2008
+#> 1 Las Condes Metropolitana de Santiago Metropolitana de Santiago
+#> 2      Nunoa Metropolitana de Santiago Metropolitana de Santiago
+#> 3   Penaflor Metropolitana de Santiago Metropolitana de Santiago
+#> 4  Penalolen Metropolitana de Santiago Metropolitana de Santiago
+#>             nom_region_2018 cod_region_2000 cod_region_2008 cod_region_2018
+#> 1 Metropolitana de Santiago              13              13              13
+#> 2 Metropolitana de Santiago              13              13              13
+#> 3 Metropolitana de Santiago              13              13              13
+#> 4 Metropolitana de Santiago              13              13              13
 ```
 
 It is strongly suggested that you run clean\_comunas() on your data

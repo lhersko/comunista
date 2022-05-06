@@ -8,7 +8,7 @@
 #' @examples
 #' df <- data.frame(comunas=c("ñuñoa", "Peñalolén", "PEñaflor", "Las condes"))
 #' clean_df <- clean_comunas(df, "comunas")
-#' code_regiones(clean_df, "comunas")
+#' clean_df_regiones <- code_regiones(clean_df, "comunas")
 code_regiones <- function(dfName, varName){
   dfName <- base::merge(dfName, cod_comunas_regiones_df[ , c("nom_comuna", "nom_region_2000", "nom_region_2008", "nom_region_2018", "cod_region_2000", "cod_region_2008", "cod_region_2018")], by.x = varName,
                         by.y = "nom_comuna", all.x = TRUE)

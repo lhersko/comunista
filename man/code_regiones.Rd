@@ -20,5 +20,5 @@ This function matches municipalities by name to their corresponding region
 \examples{
 df <- data.frame(comunas=c("ñuñoa", "Peñalolén", "PEñaflor", "Las condes"))
 clean_df <- clean_comunas(df, "comunas")
-code_regiones(clean_df, "comunas")
+clean_df_regiones <- code_regiones(clean_df, "comunas")
 }
