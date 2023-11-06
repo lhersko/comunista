@@ -1,6 +1,5 @@
 # This cleans up accents from municipality names of Chile and gets them in proper format
 
-
 #' Fix accents and weird characters in municipalities and gets them in proper format.
 #' Also converts some municipality names that can be spelled differently to a standard format.
 #'
