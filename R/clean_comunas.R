@@ -20,8 +20,10 @@ clean_comunas <- function(dfName, varName){
      dfName[[varName]][dfName[[varName]] == "Coihaique"] <- "Coyhaique"
      dfName[[varName]][dfName[[varName]] == "Tal Tal"] <- "Taltal"
      dfName[[varName]][dfName[[varName]] == "Til Til"] <- "Tiltil"
+     dfName[[varName]][dfName[[varName]] == "Til-Til"] <- "Tiltil"
      dfName[[varName]][dfName[[varName]] == "Llay Llay"] <- "Llayllay"
      dfName[[varName]][dfName[[varName]] == "Llaillay"] <- "Llayllay"
+     dfName[[varName]][dfName[[varName]] == "Llai-llay"] <- "Llayllay"
      dfName[[varName]][dfName[[varName]] == "Llay-Llay"] <- "Llayllay"
      dfName
 }
