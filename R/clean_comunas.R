@@ -73,13 +73,12 @@ clean_comunas <- function(dfName, varName){
      known_names <- as.data.frame(known_names)
      known_names <- dplyr::rename(known_names, "comunas" = "known_names")
 
-
+# check number of correctly merged municipalities
      check_merge <- dfName %>%
        dplyr::select({{varName}}) %>%
        dplyr::rename(comunas = {{varName}}) %>%
        dplyr::inner_join(known_names, by = "comunas") %>%
        distinct()
-
 
      check_merge <- unique(check_merge$comunas)
      check_merge <- as.data.frame(check_merge)
@@ -87,13 +86,22 @@ clean_comunas <- function(dfName, varName){
      check_merge <- check_merge %>%
        dplyr::rename(comunas = check_merge)
 
-
      print(paste(length(unique(dfName[[varName]])), "unique municipalities in your data"))
-
      print(paste(length(unique(check_merge$comunas)), "unique municipalities matched to master list"))
-
      print(paste(100*length(unique(check_merge$comunas))/length(unique(dfName[[varName]])), "% of your municipalities were matched to valid names"))
 
+     # identify municipalities that were not merged
+     check_merge <- dfName %>%
+       dplyr::select({{varName}}) %>%
+       dplyr::rename(comunas = {{varName}}) %>%
+       dplyr::anti_join(known_names, by = "comunas") %>%
+       distinct()
+     check_merge <- unique(check_merge$comunas)
+     check_merge <- as.data.frame(check_merge)
+     check_merge <- check_merge %>%
+       dplyr::rename(comunas = check_merge)
+
+      print(paste("Municipalities that could not be merged: ", check_merge$comunas))
 }
 
 
