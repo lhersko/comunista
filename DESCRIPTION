@@ -1,6 +1,6 @@
 Package: comunista
 Title: Fixes Names Of Chilean Municipalities For Easier Joining
-Version: 0.0.1
+Version: 0.1.0
 Authors@R: 
     person("Luis", "Herskovic", , "luis.herskovic@uai.cl", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-8761-1669"))
