@@ -76,8 +76,8 @@ clean_comunas <- function(dfName, varName){
 
      check_merge <- dfName %>%
        dplyr::select({{varName}}) %>%
-       rename(comunas = {{varName}}) %>%
-       inner_join(known_names, by = "comunas") %>%
+       dplyr::rename(comunas = {{varName}}) %>%
+       dplyr::inner_join(known_names, by = "comunas") %>%
        distinct()
 
 
