@@ -54,8 +54,6 @@ known_names <- c(
   "San Gregorio", "Ollague", "Timaukel", "Rio Verde", "Antartica"
 )
 
-known_names <- as.data.frame(known_names)
-known_names <- rename(known_names, "comunas" = "known_names")
 
 clean_comunas <- function(dfName, varName){
      dfName[[varName]] <- stringi::stri_trans_general(dfName[[varName]], "latin-ascii")
@@ -72,6 +70,8 @@ clean_comunas <- function(dfName, varName){
      dfName[[varName]][dfName[[varName]] == "Llay-Llay"] <- "Llayllay"
      dfName
 
+     known_names <- as.data.frame(known_names)
+     known_names <- dplyr::rename(known_names, "comunas" = "known_names")
 
 
      check_merge <- dfName %>%
