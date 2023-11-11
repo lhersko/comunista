@@ -3,6 +3,8 @@
 #' Fix accents and strange characters in municipalities and gets them in proper format.
 #' Also converts some municipality names that can be spelled differently to a standard format.
 #' Reports the percentage of municipalities that were successfully matched to known names.
+#' Reports names of municipalities in your data that are not matched to known names.
+#' Suggest close names.
 #'
 #' @param dfName A dataframe containing a variable with municipalities
 #' @param varName A variable containing municipalities, in quotation marks.
@@ -58,6 +60,7 @@ known_names <- c(
 clean_comunas <- function(dfName, varName){
      dfName[[varName]] <- stringi::stri_trans_general(dfName[[varName]], "latin-ascii")
      dfName[[varName]] <- stringi::stri_trans_totitle(dfName[[varName]])
+     dfName[[varName]] <- trimws(gsub("\\s+", " ", dfName[[varName]]))
      dfName[[varName]][dfName[[varName]] == "Bio Bio"] <- "Biobio"
      dfName[[varName]][dfName[[varName]] == "Bio-Bio"] <- "Biobio"
      dfName[[varName]][dfName[[varName]] == "Coihaique"] <- "Coyhaique"
@@ -68,7 +71,21 @@ clean_comunas <- function(dfName, varName){
      dfName[[varName]][dfName[[varName]] == "Llaillay"] <- "Llayllay"
      dfName[[varName]][dfName[[varName]] == "Llai-llay"] <- "Llayllay"
      dfName[[varName]][dfName[[varName]] == "Llay-Llay"] <- "Llayllay"
-     dfName
+     dfName[[varName]][dfName[[varName]] == "Est Central"] <- "Estacion Central"
+     dfName[[varName]][dfName[[varName]] == "La Calera"] <- "Calera"
+     dfName[[varName]][dfName[[varName]] == "Titil"] <- "Tiltil"
+     dfName[[varName]][dfName[[varName]] == "Paihuano"] <- "Paiguano"
+     dfName[[varName]][dfName[[varName]] == "Marchigue"] <- "Marchihue"
+     dfName[[varName]][dfName[[varName]] == "Trehuaco"] <- "Treguaco"
+     dfName[[varName]][dfName[[varName]] == "Ohiggins"] <- "O'higgins"
+     dfName[[varName]][dfName[[varName]] == "O´Higgins"] <- "O'higgins"
+     dfName[[varName]][dfName[[varName]] == "P Aguirre Cerda"] <- "Pedro Aguirre Cerda"
+     dfName[[varName]][dfName[[varName]] == "San Jose Maipo"] <- "San Jose De Maipo"
+     dfName[[varName]][dfName[[varName]] == "San Pedro De Melipilla"] <- "San Pedro"
+     dfName[[varName]][dfName[[varName]] == "Aysen"] <- "Aisen"
+     dfName[[varName]][dfName[[varName]] == "Hijuela"] <- "Hijuelas"
+
+
 
      known_names <- as.data.frame(known_names)
      known_names <- dplyr::rename(known_names, "comunas" = "known_names")
@@ -101,7 +118,34 @@ clean_comunas <- function(dfName, varName){
      check_merge <- check_merge %>%
        dplyr::rename(comunas = check_merge)
 
-      print(paste("Municipalities that could not be merged: ", check_merge$comunas))
+
+     if (nrow(check_merge) == 0) {
+       print("All municipalities have valid names")
+     } else {
+       print(paste(nrow(check_merge),"Municipalities were not recognized. They are:", toString(check_merge$comunas)))
+     }
+
+
+     # Set a threshold for similarity
+     threshold <- 3
+
+     # Find the closest match using adist from base R
+     check_merge <- check_merge[!is.na(check_merge$comunas), , drop = FALSE]
+
+     distances <- utils::adist(check_merge$comunas, known_names$comunas)
+
+     # Find the index of the closest match
+     closest_match_index <- which.min(distances)
+
+     # Check if a match was found and print the result
+     if (distances[closest_match_index] <= threshold && !all(known_names$comunas == "NA")) {
+       closest_match <<- known_names$comunas[closest_match_index]
+       print(paste("A close match found: ", closest_match))
+     } else {
+       print("No close match found.")
+     }
+
+     dfName
 }
 
 
