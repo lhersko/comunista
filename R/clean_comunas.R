@@ -85,7 +85,7 @@ clean_comunas <- function(dfName, varName){
      dfName[[varName]][dfName[[varName]] == "Aysen"] <- "Aisen"
      dfName[[varName]][dfName[[varName]] == "Hijuela"] <- "Hijuelas"
 
-
+     dfName
 
      known_names <- as.data.frame(known_names)
      known_names <- dplyr::rename(known_names, "comunas" = "known_names")
@@ -145,7 +145,7 @@ clean_comunas <- function(dfName, varName){
        print("No close match found.")
      }
 
-     dfName
+
 }
 
 
