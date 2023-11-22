@@ -138,12 +138,12 @@ clean_comunas <- function(dfName, varName){
      closest_match_index <- which.min(distances)
 
      # Check if a match was found and print the result
-     if (distances[closest_match_index] <= threshold && !all(known_names$comunas == "NA")) {
-       closest_match <<- known_names$comunas[closest_match_index]
-       print(paste("A close match found: ", closest_match))
-     } else {
-       print("No close match found.")
-     }
+    # if (distances[closest_match_index] <= threshold && !all(is.na(known_names$comunas))) {
+     #  closest_match <- known_names$comunas[closest_match_index]
+      # print(paste("A close match found: ", closest_match))
+     #} else {
+      # print("No close match found.")
+     #}
 
   return(dfName)
 }
